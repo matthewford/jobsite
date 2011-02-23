@@ -5,4 +5,8 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable
 
+
+  def to_s
+    email
+  end
 end

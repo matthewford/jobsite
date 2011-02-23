@@ -11,8 +11,35 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
+  <div id="container">
+    <header>
+    <ul>
+    <li><%= link_to "Home", root_path %>
+    
+    <% if user_signed_in? -%>
+    <li><%= current_user %> </li>
+    <li><%= link_to "Sign Out", destroy_user_session_path %></li>
+    <% elsif admin_signed_in? -%>
+    <li>post a job</li>
+    <li><%= link_to "Sign Out", destroy_admin_session_path %></li>
+    <% else -%>
+    <li>moderate a job</li>
+    <li><%= link_to "Sign Up", new_user_registration_path %></li>
+    <li><%= link_to "Sign In", new_user_session_path %></li>     
+    <% end -%>
+    </ul>
+    </header>
+    
+    <div id="main">
+    <%= yield %>
+    </div>
+    
+    <footer>
 
-<%= yield %>
+    </footer>
+  </div> <!--! end of #container -->
+
+
 
 </body>
 </html>
