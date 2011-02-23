@@ -1,0 +1,13 @@
+development:
+  host: localhost
+  database: jobsite_development
+
+test:
+  host: localhost
+  database: jobsite_test
+
+# set these environment variables on your prod server
+production:
+  host: localhost
+  database: jobsite_production
+
