@@ -1,4 +1,6 @@
 Jobsite::Application.routes.draw do
+  resources :listings
+
   devise_for :admins
 
   devise_for :users

@@ -18,7 +18,9 @@
     
     <% if user_signed_in? -%>
     <li><%= current_user %> </li>
-    <li>post a job</li>
+    
+    <li><%= link_to 'Job Listings', listings_path %></li>
+    
     <li><%= link_to "Sign Out", destroy_user_session_path %></li>
     <% elsif admin_signed_in? -%>
 

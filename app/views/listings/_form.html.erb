@@ -1,0 +1,15 @@
+<%= simple_form_for(@listing) do |f| %>
+  <%= render :partial => 'layouts/form_errors', :object => @listing %>
+  <%= f.input :title %>
+  <%= f.input :position %>
+  <%= f.input :company %>
+
+  <%= f.input :city %>
+  <%= f.input :country, :priority => [:GB, :US] %>
+  
+  <%= f.input :description, :as => :text %>
+  
+  <%= f.input :ending, :as => :date %>
+  
+  <%= f.button :submit %>
+<% end %>

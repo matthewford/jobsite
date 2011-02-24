@@ -6,6 +6,9 @@ class User
          :recoverable, :rememberable, :trackable
 
 
+    
+  references_many :listings
+
   def to_s
     email
   end

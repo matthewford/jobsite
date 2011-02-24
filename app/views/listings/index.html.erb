@@ -1,0 +1,7 @@
+<h1>Job Listings</h1>
+<% if user_signed_in? -%>
+<p><%= link_to "post a job", new_listing_path %></p>
+<% end -%>
+<ul>
+<%= render @listings %>
+</ul>
