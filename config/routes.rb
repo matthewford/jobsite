@@ -5,6 +5,7 @@ Jobsite::Application.routes.draw do
 
   devise_for :users
 
+  match 'search' => 'listings#search'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

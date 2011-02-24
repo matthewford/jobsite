@@ -1,1 +1,12 @@
 <h1>Basic Jobsite</h1>
+
+<p>Search
+<%= form_tag "/search", :method => :get, "data-remote" => "true", :id => "job-search" do %>
+<%= text_field_tag :q %>
+<% end %>
+</p>
+
+<ul id='jobs'>
+
+</ul>
+
