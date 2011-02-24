@@ -8,7 +8,7 @@ class ListingsController < InheritedResources::Base
     else
     @listings = Listing.where(:title => /#{params[:q]}/i).desc(:created_at)
     end
-    render :json => @listings
+    render :json => @listings, :content_type => 'application/json'
   end
 
   protected

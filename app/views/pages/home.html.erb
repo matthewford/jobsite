@@ -7,6 +7,18 @@
 </p>
 
 <ul id='jobs'>
-
+<%= render @listings %>
 </ul>
 
+<script id="listings-template" type="text/x-handlebars-template">
+  {{#each listings}}
+
+  <li>
+
+   <a href="/listings/{{_id}}">{{title}}</a> <br/>
+
+   {{position }} - {{ company }} ({{ city }}, {{ country }})
+
+  </li>
+  {{/each}}
+</script>

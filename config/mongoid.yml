@@ -2,6 +2,7 @@ development:
   host: localhost
   database: jobsite_development
 
+
 test:
   host: localhost
   database: jobsite_test
