@@ -21,7 +21,7 @@ class Listing
   referenced_in :user
   
   validates_presence_of :title, :position, :company, :city, :country
-  
+      
   def to_s
     title
   end

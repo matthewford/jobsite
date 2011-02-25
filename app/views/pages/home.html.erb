@@ -3,9 +3,17 @@
 <p>Search
 <%= form_tag "/search", :method => :get, "data-remote" => "true", :id => "job-search" do %>
 <%= text_field_tag :q %>
+<%= label_tag 'entrepenural_score' %>
+<%= select_tag 'entrepenural_score', options_for_select((1..5)) %>
+<%= label_tag 'exotic_score' %>
+<%= select_tag 'exotic_score', options_for_select((1..5)) %>
+<%= label_tag 'financial_score' %>
+<%= select_tag 'financial_score', options_for_select((1..5)) %>
+<%= label_tag 'social_score' %>
+<%= select_tag 'social_score', options_for_select((1..5)) %>
 <% end %>
 </p>
-
+<hr />
 <ul id='jobs'>
 <%= render @listings %>
 </ul>

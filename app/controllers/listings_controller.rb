@@ -3,12 +3,20 @@ class ListingsController < InheritedResources::Base
   before_filter :authenticate_user!, :except => :search
   
   def search
-    if params[:q].blank?
-    @listings = Listing.all.desc(:created_at)
-    else
-    @listings = Listing.where(:title => /#{params[:q]}/i).desc(:created_at)
+    criteria = Listing.criteria
+    
+    unless params[:q].blank?
+      criteria = criteria.where(:title => /#{params[:q]}/i)
     end
-    render :json => @listings, :content_type => 'application/json'
+
+    scores = params.select{|k,v| k.split('_')[1] == 'score'}   
+    scores.each{ |k,v| 
+      criteria = criteria.where(:"#{k}".gte =>  v.to_i)
+    }
+    
+    listings = criteria.desc(:created_at)
+    
+    render :json => listings, :content_type => 'application/json'
   end
 
   protected
